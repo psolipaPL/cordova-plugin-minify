@@ -1,15 +1,11 @@
 {
-	"minifyEnabled": "Release",
-	"combineJavascripts": {
-		"enabled" : false
-	},
-	"files": {
-		"paths": [""],
-		"recursive": true,
-		"javascriptStrategy": "scanDirectory"
-	},
-	"terserOptions": { 
-	},
-	"cleanCSSOptions": {
-	}
+  minifyEnabled: 'Always',
+  combineJavascripts: { enabled: true, file: 'all.min.js' },
+  files: { paths: [ 'index.html', '' ], recursive: true, javascriptStrategy: 'scanHtml' },
+  terserOptions: {
+    nameCache: {},
+    mangle: { reserved: ['$'], toplevel: true },
+    format: { comments: false }
+  },
+  cleanCSSOptions: {}
 }
