@@ -17,26 +17,21 @@ module.exports = function(context) {
         fileConfig = JSON.parse(fs.readFileSync(configFile, "utf8"));
     }
     config = {
-        minifyEnabled: "Release",
-        combineJavascripts: {
-            enabled: false,
-            /* Experimental. May cause problems when javascriptStrategy 
-             * scanDirectories since javascript files may depend on one another */
-            file: 'all.min.js',
-        },
-        files: {
-            paths: [''],
-            recursive: true,
-            //javascriptStrategy: 'scanHtml', 
-            javascriptStrategy: 'scanDirectories'
-        },
-        terserOptions: {
-            nameCache: {},
-        },
-        cleanCSSOptions: {
+	"minifyEnabled": "Always",
+	"combineJavascripts": {
+		"enabled" : false
+	},
+	"files": {
+		"paths": [""],
+		"recursive": true,
+		"javascriptStrategy": "scanDirectory"
+	},
+	"terserOptions": {
+	},
+	"cleanCSSOptions": {
+	}
+}
 
-        }
-    }
     deepMerge(config, fileConfig);
 
     // Check configuration
